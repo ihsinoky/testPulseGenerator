@@ -16,6 +16,6 @@ typedef struct _WorkSpace
 } WorkSpace;
 
 extern TestSetting testsetting[];
-extern WorkSpace work[];
+extern WorkSpace workspace[];
 
 #endif

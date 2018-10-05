@@ -8,7 +8,7 @@ class TestSequence
 public:
   Port p;
   int delayTime;
-  static TestSequence toSequence(TestSetting setting);
+  static TestSequence toSequence(TestSetting setting, WorkSpace *work);
   TestSequence() : p({0, 0, 0}), delayTime(0)
   {
   }

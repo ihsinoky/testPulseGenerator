@@ -37,7 +37,7 @@ void loop()
   /* Create test sequence */
   for (int i = 0; i < SETTING_COUNT; i++)
   {
-    seqs[i] = TestSequence::toSequence(testsetting[i]);
+    seqs[i] = TestSequence::toSequence(testsetting[i], &workspace[i]);
     printProcedure(seqs[i].p.portNum, seqs[i].p.state, seqs[i].delayTime);
   }
 
