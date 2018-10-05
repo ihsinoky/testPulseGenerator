@@ -9,6 +9,7 @@ public:
   Port p;
   int delayTime;
   static TestSequence toSequence(TestSetting setting, WorkSpace *work);
+  static void sort();
   TestSequence() : p({0, 0, 0}), delayTime(0)
   {
   }

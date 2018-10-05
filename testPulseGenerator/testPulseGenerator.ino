@@ -38,11 +38,11 @@ void loop()
   for (int i = 0; i < SETTING_COUNT; i++)
   {
     seqs[i] = TestSequence::toSequence(testsetting[i], &workspace[i]);
-    printProcedure(seqs[i].p.portNum, seqs[i].p.state, seqs[i].delayTime);
   }
-
+  TestSequence::sort();
   for (int i = 0; i < SETTING_COUNT; i++)
   {
+    printProcedure(seqs[i].p.portNum, seqs[i].p.state, seqs[i].delayTime);
     delay(seqs[i].delayTime);
     digitalWrite(seqs[i].p.portNum, seqs[i].p.state);
   }
