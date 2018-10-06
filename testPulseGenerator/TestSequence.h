@@ -10,6 +10,7 @@ public:
   int delayTime;
   static TestSequence toSequence(TestSetting setting, WorkSpace *work);
   static void sort();
+  static void relativize();
   TestSequence() : p({0, 0, 0}), delayTime(0)
   {
   }

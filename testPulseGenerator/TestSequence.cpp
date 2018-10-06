@@ -48,6 +48,18 @@ static void TestSequence::sort()
   }
 }
 
+static void TestSequence::relativize()
+{
+  int prevTime = 0;
+  int diffTime = 0;
+  for (int i = 0; i < SETTING_COUNT; i++)
+  {
+    diffTime = seqs[i].delayTime - prevTime;
+    prevTime = seqs[i].delayTime;
+    seqs[i].delayTime = diffTime;
+  }
+}
+
 bool TestSequence::operator<(const TestSequence &rhs) const
 {
   return delayTime < rhs.delayTime;

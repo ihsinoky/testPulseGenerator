@@ -40,6 +40,7 @@ void loop()
     seqs[i] = TestSequence::toSequence(testsetting[i], &workspace[i]);
   }
   TestSequence::sort();
+  TestSequence::relativize();
   for (int i = 0; i < SETTING_COUNT; i++)
   {
     printProcedure(seqs[i].p.portNum, seqs[i].p.state, seqs[i].delayTime);
