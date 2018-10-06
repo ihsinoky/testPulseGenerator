@@ -5,12 +5,16 @@
 
 class TestSequence
 {
+private:
+  static void printProcedure(int p, int state, int t);
+
 public:
   Port p;
   int delayTime;
   static TestSequence toSequence(TestSetting setting, WorkSpace *work);
   static void sort();
   static void relativize();
+  static void printSequences(int testcount);
   TestSequence() : p({0, 0, 0}), delayTime(0)
   {
   }
