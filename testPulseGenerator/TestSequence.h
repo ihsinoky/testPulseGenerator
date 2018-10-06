@@ -24,10 +24,6 @@ public:
   TestSequence(const TestSequence &ts) : p(ts.p), delayTime(ts.delayTime)
   {
   }
-  bool operator>(const TestSequence &rhs) const;
-  bool operator<(const TestSequence &rhs) const;
-  bool operator>=(const TestSequence &rhs) const;
-  bool operator<=(const TestSequence &rhs) const;
 };
 
 extern TestSequence seqs[];

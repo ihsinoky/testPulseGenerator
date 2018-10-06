@@ -73,7 +73,7 @@ void TestSequence::printProcedure(int p, int state, int t)
   {
     Serial.print(" □ ");
   }
-  Serial.print("\t|");
+  Serial.print("|");
   Serial.print(t);
   Serial.println("\t|");
 }
@@ -87,24 +87,4 @@ static void TestSequence::printSequences(int testcount)
   {
     TestSequence::printProcedure(seqs[i].p.portNum, seqs[i].p.state, seqs[i].delayTime);
   }
-}
-
-bool TestSequence::operator<(const TestSequence &rhs) const
-{
-  return delayTime < rhs.delayTime;
-}
-
-bool TestSequence::operator>(const TestSequence &rhs) const
-{
-  return delayTime > rhs.delayTime;
-}
-
-bool TestSequence::operator<=(const TestSequence &rhs) const
-{
-  return delayTime <= rhs.delayTime;
-}
-
-bool TestSequence::operator>=(const TestSequence &rhs) const
-{
-  return delayTime >= rhs.delayTime;
 }
