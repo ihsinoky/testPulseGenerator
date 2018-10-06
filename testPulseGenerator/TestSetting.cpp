@@ -1,5 +1,8 @@
 #include "TestSetting.h"
 
+/* 0:Infinity */
+const int TEST_COUNT = 10;
+
 TestSetting testsetting[SETTING_COUNT] = {
     /* {PortSettins}, {TimeRange} */
     {{13, LOW, ACTIVE}, {100, 200, TYPE_RANDOM}},

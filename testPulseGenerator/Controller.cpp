@@ -4,7 +4,7 @@
 
 void Controller::init()
 {
-   testState = STATE_IDLE;
+    testState = STATE_IDLE;
     for (int i = 0; i < SETTING_COUNT; i++)
     {
         pinMode(testsetting[i].p.portNum, OUTPUT);
@@ -30,6 +30,11 @@ void Controller::perform()
         break;
     case STATE_RUNNING:
         performOnRunning();
+        if (TEST_COUNT != 0 &&
+            testCount > TEST_COUNT)
+        {
+            transit(ETX);
+        }
         break;
     }
 }
@@ -45,6 +50,10 @@ void Controller::transit(int state)
     case CAN:
         testState = STATE_IDLE;
         Serial.write(EOT);
+        break;
+    case ETX:
+        testState = STATE_IDLE;
+        Serial.write(ETX);
         break;
     }
 }

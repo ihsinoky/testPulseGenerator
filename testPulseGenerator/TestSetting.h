@@ -15,6 +15,7 @@ typedef struct _WorkSpace
   int prevTime;
 } WorkSpace;
 
+extern const int TEST_COUNT;
 extern TestSetting testsetting[];
 extern WorkSpace workspace[];
 
