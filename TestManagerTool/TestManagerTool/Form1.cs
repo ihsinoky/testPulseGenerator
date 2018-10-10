@@ -125,5 +125,13 @@ namespace TestManagerTool
         {
             textBox1.Text = "";
         }
+
+        private void TestImportBtn_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "Excel(*.xlsm)|*.xlsm";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK) {
+                TestPathTxt.Text = openFileDialog1.FileName;
+            }
+        }
     }
 }

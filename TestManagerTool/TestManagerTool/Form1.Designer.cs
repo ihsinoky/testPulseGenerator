@@ -38,6 +38,9 @@
             this.StartBtn = new System.Windows.Forms.Button();
             this.StopBtn = new System.Windows.Forms.Button();
             this.ClearLogBtn = new System.Windows.Forms.Button();
+            this.TestPathTxt = new System.Windows.Forms.TextBox();
+            this.TestImportBtn = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // LoadBtn
@@ -111,11 +114,34 @@
             this.ClearLogBtn.UseVisualStyleBackColor = true;
             this.ClearLogBtn.Click += new System.EventHandler(this.ClearLogBtn_Click);
             // 
+            // TestPathTxt
+            // 
+            this.TestPathTxt.Location = new System.Drawing.Point(38, 65);
+            this.TestPathTxt.Name = "TestPathTxt";
+            this.TestPathTxt.Size = new System.Drawing.Size(121, 19);
+            this.TestPathTxt.TabIndex = 7;
+            // 
+            // TestImportBtn
+            // 
+            this.TestImportBtn.Location = new System.Drawing.Point(177, 63);
+            this.TestImportBtn.Name = "TestImportBtn";
+            this.TestImportBtn.Size = new System.Drawing.Size(75, 23);
+            this.TestImportBtn.TabIndex = 8;
+            this.TestImportBtn.Text = "Import Test";
+            this.TestImportBtn.UseVisualStyleBackColor = true;
+            this.TestImportBtn.Click += new System.EventHandler(this.TestImportBtn_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 348);
+            this.Controls.Add(this.TestImportBtn);
+            this.Controls.Add(this.TestPathTxt);
             this.Controls.Add(this.ClearLogBtn);
             this.Controls.Add(this.StopBtn);
             this.Controls.Add(this.StartBtn);
@@ -142,6 +168,9 @@
         private System.Windows.Forms.Button StartBtn;
         private System.Windows.Forms.Button StopBtn;
         private System.Windows.Forms.Button ClearLogBtn;
+        private System.Windows.Forms.TextBox TestPathTxt;
+        private System.Windows.Forms.Button TestImportBtn;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
