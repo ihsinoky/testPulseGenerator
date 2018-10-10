@@ -126,11 +126,39 @@ namespace TestManagerTool
             textBox1.Text = "";
         }
 
+        private void ImportTestCaseExcel(string path)
+        {
+            // Excel.Application の新しいインスタンスを生成する
+            var xlApp = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel.Workbooks xlBooks;
+
+            // xlApplication から WorkBooks を取得する
+            // 既存の Excel ブックを開く
+            xlBooks = xlApp.Workbooks;
+            xlBooks.Open(path, ReadOnly:true);
+
+            // Excel を表示する
+            xlApp.Visible = true;
+
+            // マクロを実行する
+            // 標準モジュール内のexportメソッドに thisPath を引数で渡し実行
+            var filename = Path.GetFileName(path);
+            var thisPath = Path.GetDirectoryName(path);
+            xlApp.Run(filename + "!export", thisPath);
+
+            // Excel を終了する
+            xlApp.DisplayAlerts = false;
+            xlApp.Quit();
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(xlBooks);
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(xlApp);
+        }
+
         private void TestImportBtn_Click(object sender, EventArgs e)
         {
             openFileDialog1.Filter = "Excel(*.xlsm)|*.xlsm";
             if (openFileDialog1.ShowDialog() == DialogResult.OK) {
                 TestPathTxt.Text = openFileDialog1.FileName;
+                ImportTestCaseExcel(TestPathTxt.Text);
             }
         }
     }
