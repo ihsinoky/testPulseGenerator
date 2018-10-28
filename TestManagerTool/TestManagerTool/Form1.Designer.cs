@@ -42,6 +42,7 @@
             this.TestImportBtn = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.testConfirmationCtrl1 = new TestManagerTool.TestConfirmationCtrl();
+            this.RunTestsBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LoadBtn
@@ -143,11 +144,22 @@
             this.testConfirmationCtrl1.Size = new System.Drawing.Size(635, 312);
             this.testConfirmationCtrl1.TabIndex = 9;
             // 
+            // RunTestsBtn
+            // 
+            this.RunTestsBtn.Location = new System.Drawing.Point(177, 99);
+            this.RunTestsBtn.Name = "RunTestsBtn";
+            this.RunTestsBtn.Size = new System.Drawing.Size(75, 23);
+            this.RunTestsBtn.TabIndex = 10;
+            this.RunTestsBtn.Text = "Run Tests";
+            this.RunTestsBtn.UseVisualStyleBackColor = true;
+            this.RunTestsBtn.Click += new System.EventHandler(this.RunTestsBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 661);
+            this.Controls.Add(this.RunTestsBtn);
             this.Controls.Add(this.testConfirmationCtrl1);
             this.Controls.Add(this.TestImportBtn);
             this.Controls.Add(this.TestPathTxt);
@@ -181,6 +193,7 @@
         private System.Windows.Forms.Button TestImportBtn;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private TestConfirmationCtrl testConfirmationCtrl1;
+        private System.Windows.Forms.Button RunTestsBtn;
     }
 }
 

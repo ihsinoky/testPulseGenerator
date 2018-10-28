@@ -155,5 +155,35 @@ namespace TestManagerTool
                     return "Unknown";
             }
         }
+        
+        public int GetTestCount()
+        {
+            return testCaseDataSet.Tables["TestDataTable"].Rows.Count;
+        }
+
+        public TestCaseContainer GetTest(int i)
+        {
+            DataRow dataRow = testCaseDataSet.Tables["TestDataTable"].Rows[i];
+            TestCaseContainer result = new TestCaseContainer();
+            result.Testnum = (ulong)dataRow["TestNum"];
+            result.Testname = (string)dataRow["TestName"];
+            result.LimitType =(byte)dataRow["LimitType"];
+            result.LimitValue = (ulong)dataRow["LimitValue"];
+            result.Enabled = (bool)dataRow["Enable"];
+            
+            DataRow[] paramRows = testCaseDataSet.Tables["ParameterDataTable"].Select("TestNum = " + result.Testnum.ToString());
+            foreach(DataRow paramRow in paramRows)
+            {
+                TestParamContainer param = new TestParamContainer();
+                param.Port = (byte)paramRow["Port"];
+                param.Level = (bool)paramRow["Level"];
+                param.ParamType = (byte)paramRow["ParameterType"];
+                param.Param1 = (ulong)paramRow["Param1"];
+                param.Param2 = (ulong)paramRow["Param2"];
+                result.AddParam(param);
+            }
+
+            return result;
+        }
     }
 }

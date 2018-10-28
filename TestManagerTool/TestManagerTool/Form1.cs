@@ -20,29 +20,8 @@ namespace TestManagerTool
         public Form1()
         {
             InitializeComponent();
-            Assembly asm = Assembly.GetExecutingAssembly();
 
-            /* 出力フォルダの作成 */
-            if (Directory.Exists(arduinoFolder))
-            {
-                Directory.Delete(arduinoFolder, true);
-            }
-            Directory.CreateDirectory(arduinoFolder);
-
-            foreach (string infile in asm.GetManifestResourceNames())
-            {
-                if (string.Compare(Path.GetExtension(infile), ".resources") == 0)
-                {
-                    continue;
-                }
-                string filename = infile.Replace("TestManagerTool.Template.", "");
-
-                // 書き出し
-                Stream resStream = asm.GetManifestResourceStream(infile);
-                StreamReader sr = new StreamReader(resStream);
-                string text = sr.ReadToEnd();
-                File.WriteAllText(arduinoFolder + filename, text);
-            }
+            WriteArduinoProject();
 
             backgroundWorker1.WorkerSupportsCancellation = true;
             backgroundWorker1.WorkerReportsProgress = true;
@@ -136,6 +115,38 @@ namespace TestManagerTool
             {
                 TestPathTxt.Text = openFileDialog1.FileName;
                 testConfirmationCtrl1.LoadTestcase(TestPathTxt.Text);
+            }
+        }
+
+        private void RunTestsBtn_Click(object sender, EventArgs e)
+        {
+            int testCount = testConfirmationCtrl1.GetTestCount();
+            TestCaseContainer test = testConfirmationCtrl1.GetTest(0);
+        }
+
+        private void WriteArduinoProject()
+        {
+            Assembly asm = Assembly.GetExecutingAssembly();
+            /* 出力フォルダの作成 */
+            if (Directory.Exists(arduinoFolder))
+            {
+                Directory.Delete(arduinoFolder, true);
+            }
+            Directory.CreateDirectory(arduinoFolder);
+
+            foreach (string infile in asm.GetManifestResourceNames())
+            {
+                if (string.Compare(Path.GetExtension(infile), ".resources") == 0)
+                {
+                    continue;
+                }
+                string filename = infile.Replace("TestManagerTool.Template.", "");
+
+                // 書き出し
+                Stream resStream = asm.GetManifestResourceStream(infile);
+                StreamReader sr = new StreamReader(resStream);
+                string text = sr.ReadToEnd();
+                File.WriteAllText(arduinoFolder + filename, text);
             }
         }
     }
