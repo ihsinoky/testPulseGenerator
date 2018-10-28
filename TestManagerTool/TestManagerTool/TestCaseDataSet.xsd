@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TestCaseDataSet" targetNamespace="http://tempuri.org/TestCaseDataSet.xsd" xmlns:mstns="http://tempuri.org/TestCaseDataSet.xsd" xmlns="http://tempuri.org/TestCaseDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="TestCaseDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="TestCaseDataSet" msprop:Generator_UserDSName="TestCaseDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TestDataTable" msprop:Generator_TableClassName="TestDataTableDataTable" msprop:Generator_TableVarName="tableTestDataTable" msprop:Generator_TablePropName="TestDataTable" msprop:Generator_RowDeletingName="TestDataTableRowDeleting" msprop:Generator_RowChangingName="TestDataTableRowChanging" msprop:Generator_RowEvHandlerName="TestDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="TestDataTableRowDeleted" msprop:Generator_UserTableName="TestDataTable" msprop:Generator_RowChangedName="TestDataTableRowChanged" msprop:Generator_RowEvArgName="TestDataTableRowChangeEvent" msprop:Generator_RowClassName="TestDataTableRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TestNum" msprop:Generator_ColumnVarNameInTable="columnTestNum" msprop:Generator_ColumnPropNameInRow="TestNum" msprop:Generator_ColumnPropNameInTable="TestNumColumn" msprop:Generator_UserColumnName="TestNum" type="xs:unsignedLong" />
+              <xs:element name="LimitType" msprop:Generator_ColumnVarNameInTable="columnLimitType" msprop:Generator_ColumnPropNameInRow="LimitType" msprop:Generator_ColumnPropNameInTable="LimitTypeColumn" msprop:Generator_UserColumnName="LimitType" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="LimitValue" msprop:Generator_ColumnVarNameInTable="columnLimitValue" msprop:Generator_ColumnPropNameInRow="LimitValue" msprop:Generator_ColumnPropNameInTable="LimitValueColumn" msprop:Generator_UserColumnName="LimitValue" type="xs:unsignedLong" minOccurs="0" />
+              <xs:element name="Enable" msprop:Generator_ColumnVarNameInTable="columnEnable" msprop:Generator_ColumnPropNameInRow="Enable" msprop:Generator_ColumnPropNameInTable="EnableColumn" msprop:Generator_UserColumnName="Enable" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ParameterDataTable" msprop:Generator_TableClassName="ParameterDataTableDataTable" msprop:Generator_TableVarName="tableParameterDataTable" msprop:Generator_TablePropName="ParameterDataTable" msprop:Generator_RowDeletingName="ParameterDataTableRowDeleting" msprop:Generator_RowChangingName="ParameterDataTableRowChanging" msprop:Generator_RowEvHandlerName="ParameterDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="ParameterDataTableRowDeleted" msprop:Generator_UserTableName="ParameterDataTable" msprop:Generator_RowChangedName="ParameterDataTableRowChanged" msprop:Generator_RowEvArgName="ParameterDataTableRowChangeEvent" msprop:Generator_RowClassName="ParameterDataTableRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TestNum" msprop:Generator_ColumnVarNameInTable="columnTestNum" msprop:Generator_ColumnPropNameInRow="TestNum" msprop:Generator_ColumnPropNameInTable="TestNumColumn" msprop:Generator_UserColumnName="TestNum" type="xs:unsignedLong" />
+              <xs:element name="Port" msprop:Generator_ColumnVarNameInTable="columnPort" msprop:Generator_ColumnPropNameInRow="Port" msprop:Generator_ColumnPropNameInTable="PortColumn" msprop:Generator_UserColumnName="Port" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="Level" msprop:Generator_ColumnVarNameInTable="columnLevel" msprop:Generator_ColumnPropNameInRow="Level" msprop:Generator_ColumnPropNameInTable="LevelColumn" msprop:Generator_UserColumnName="Level" type="xs:boolean" minOccurs="0" />
+              <xs:element name="ParameterType" msprop:Generator_ColumnVarNameInTable="columnParameterType" msprop:Generator_ColumnPropNameInRow="ParameterType" msprop:Generator_ColumnPropNameInTable="ParameterTypeColumn" msprop:Generator_UserColumnName="ParameterType" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="Param1" msprop:Generator_ColumnVarNameInTable="columnParam1" msprop:Generator_ColumnPropNameInRow="Param1" msprop:Generator_ColumnPropNameInTable="Param1Column" msprop:Generator_UserColumnName="Param1" type="xs:unsignedLong" minOccurs="0" />
+              <xs:element name="Param2" msprop:Generator_ColumnVarNameInTable="columnParam2" msprop:Generator_ColumnPropNameInRow="Param2" msprop:Generator_ColumnPropNameInTable="Param2Column" msprop:Generator_UserColumnName="Param2" type="xs:unsignedLong" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="TestDataTableKey1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TestDataTable" />
+      <xs:field xpath="mstns:TestNum" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

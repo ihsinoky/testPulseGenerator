@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -54,6 +55,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestCaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestCaseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TestConfirmationCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TestConfirmationCtrl.Designer.cs">
+      <DependentUpon>TestConfirmationCtrl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -75,7 +87,21 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="TestConfirmationCtrl.resx">
+      <DependentUpon>TestConfirmationCtrl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="testPulseGenerator\testPulseGenerator.ino" />
+    <None Include="TestCaseDataSet.xsc">
+      <DependentUpon>TestCaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TestCaseDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TestCaseDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="TestCaseDataSet.xss">
+      <DependentUpon>TestCaseDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

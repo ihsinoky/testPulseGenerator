@@ -41,6 +41,7 @@
             this.TestPathTxt = new System.Windows.Forms.TextBox();
             this.TestImportBtn = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.testConfirmationCtrl1 = new TestManagerTool.TestConfirmationCtrl();
             this.SuspendLayout();
             // 
             // LoadBtn
@@ -135,11 +136,19 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // testConfirmationCtrl1
+            // 
+            this.testConfirmationCtrl1.Location = new System.Drawing.Point(38, 337);
+            this.testConfirmationCtrl1.Name = "testConfirmationCtrl1";
+            this.testConfirmationCtrl1.Size = new System.Drawing.Size(635, 312);
+            this.testConfirmationCtrl1.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 348);
+            this.ClientSize = new System.Drawing.Size(800, 661);
+            this.Controls.Add(this.testConfirmationCtrl1);
             this.Controls.Add(this.TestImportBtn);
             this.Controls.Add(this.TestPathTxt);
             this.Controls.Add(this.ClearLogBtn);
@@ -171,6 +180,7 @@
         private System.Windows.Forms.TextBox TestPathTxt;
         private System.Windows.Forms.Button TestImportBtn;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private TestConfirmationCtrl testConfirmationCtrl1;
     }
 }
 

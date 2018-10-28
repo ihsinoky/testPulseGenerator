@@ -31,7 +31,7 @@ namespace TestManagerTool
 
             foreach (string infile in asm.GetManifestResourceNames())
             {
-                if (string.Compare(Path.GetExtension(infile), ".resources")==0)
+                if (string.Compare(Path.GetExtension(infile), ".resources") == 0)
                 {
                     continue;
                 }
@@ -61,7 +61,7 @@ namespace TestManagerTool
         }
         private void LoadBtn_Click(object sender, EventArgs e)
         {
-            string arg = "--upload " + System.IO.Directory.GetCurrentDirectory() +"\\"+ arduinoFolder + "testPluseGenerator.ino";
+            string arg = "--upload " + System.IO.Directory.GetCurrentDirectory() + "\\" + arduinoFolder + "testPluseGenerator.ino";
             Process p = Process.Start("arduino", arg);
         }
         private void ComOpenClose_Click(object sender, EventArgs e)
@@ -77,7 +77,8 @@ namespace TestManagerTool
                 serialPort1.Open();
                 ComOpenClose.Text = "Close";
                 backgroundWorker1.RunWorkerAsync();
-            } else
+            }
+            else
             {
                 serialPort1.Close();
                 backgroundWorker1.CancelAsync();
@@ -91,7 +92,7 @@ namespace TestManagerTool
         }
         private void BackgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            while(true)
+            while (true)
             {
                 try
                 {
@@ -126,39 +127,15 @@ namespace TestManagerTool
             textBox1.Text = "";
         }
 
-        private void ImportTestCaseExcel(string path)
-        {
-            // Excel.Application の新しいインスタンスを生成する
-            var xlApp = new Microsoft.Office.Interop.Excel.Application();
-            Microsoft.Office.Interop.Excel.Workbooks xlBooks;
-
-            // xlApplication から WorkBooks を取得する
-            // 既存の Excel ブックを開く
-            xlBooks = xlApp.Workbooks;
-            xlBooks.Open(path, ReadOnly:true);
-
-            // Excel を表示する
-            xlApp.Visible = true;
-
-            // マクロを実行する
-            // 標準モジュール内のexportメソッドに thisPath を引数で渡し実行
-            var filename = Path.GetFileName(path);
-            var thisPath = Path.GetDirectoryName(path);
-            xlApp.Run(filename + "!export", thisPath);
-
-            // Excel を終了する
-            xlApp.DisplayAlerts = false;
-            xlApp.Quit();
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(xlBooks);
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(xlApp);
-        }
 
         private void TestImportBtn_Click(object sender, EventArgs e)
         {
+            testConfirmationCtrl1.Clear();
             openFileDialog1.Filter = "Excel(*.xlsm)|*.xlsm";
-            if (openFileDialog1.ShowDialog() == DialogResult.OK) {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
                 TestPathTxt.Text = openFileDialog1.FileName;
-                ImportTestCaseExcel(TestPathTxt.Text);
+                testConfirmationCtrl1.LoadTestcase(TestPathTxt.Text);
             }
         }
     }
