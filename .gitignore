@@ -5,3 +5,4 @@ GTAGS
 TestManagerTool/TestManagerTool/bin
 TestManagerTool/TestManagerTool/obj
 TestManagerTool/.vs
+*.xml
