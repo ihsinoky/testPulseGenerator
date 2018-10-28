@@ -166,7 +166,7 @@ namespace TestManagerTool
             DataRow dataRow = testCaseDataSet.Tables["TestDataTable"].Rows[i];
             TestCaseContainer result = new TestCaseContainer();
             result.Testnum = (ulong)dataRow["TestNum"];
-            result.Testname = (string)dataRow["TestName"];
+            result.Testname = (string)dataRow["Name"];
             result.LimitType =(byte)dataRow["LimitType"];
             result.LimitValue = (ulong)dataRow["LimitValue"];
             result.Enabled = (bool)dataRow["Enable"];

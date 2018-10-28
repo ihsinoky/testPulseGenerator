@@ -19,7 +19,10 @@ namespace TestManagerTool
         public ulong LimitValue { get => limitValue; set => limitValue = value; }
         public bool Enabled { get => enabled; set => enabled = value; }
         public string Testname { get => testname; set => testname = value; }
-
+        public TestCaseContainer()
+        {
+            param = new List<TestParamContainer>();
+        }
         public void Clear()
         {
             param.Clear();
