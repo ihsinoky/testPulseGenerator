@@ -2,7 +2,7 @@
 #define __TEST_SETTING_H__
 #include "Common.h"
 
-#define SETTING_COUNT (4)
+#define SETTING_COUNT (#SETTING_COUNT#)
 
 typedef struct _TestSetting
 {

@@ -13,21 +13,20 @@ using System.Xml;
 
 namespace TestManagerTool
 {
+    enum LimitType
+    {
+        Time,
+        Counter
+    }
+    enum ParamType
+    {
+        Fix,
+        Random,
+        Increment,
+        Decrement
+    }
     public partial class TestConfirmationCtrl : UserControl
     {
-        private enum LimitType
-        {
-            Time,
-            Counter
-        }
-        private enum ParamType
-        {
-            Fix,
-            Random,
-            Increment,
-            Decrement
-        }
-
         public TestConfirmationCtrl()
         {
             InitializeComponent();

@@ -13,7 +13,7 @@ namespace TestManagerTool
         private Byte limitType;
         private UInt64 limitValue;
         private Boolean enabled;
-        private List<TestParamContainer> param;
+        public List<TestParamContainer> param;
         public ulong Testnum { get => testnum; set => testnum = value; }
         public byte LimitType { get => limitType; set => limitType = value; }
         public ulong LimitValue { get => limitValue; set => limitValue = value; }

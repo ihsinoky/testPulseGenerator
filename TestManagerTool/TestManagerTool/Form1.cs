@@ -21,7 +21,7 @@ namespace TestManagerTool
         {
             InitializeComponent();
 
-            WriteArduinoProject();
+            WriteArduinoProject("","","");
 
             backgroundWorker1.WorkerSupportsCancellation = true;
             backgroundWorker1.WorkerReportsProgress = true;
@@ -105,8 +105,6 @@ namespace TestManagerTool
         {
             textBox1.Text = "";
         }
-
-
         private void TestImportBtn_Click(object sender, EventArgs e)
         {
             testConfirmationCtrl1.Clear();
@@ -117,14 +115,40 @@ namespace TestManagerTool
                 testConfirmationCtrl1.LoadTestcase(TestPathTxt.Text);
             }
         }
-
         private void RunTestsBtn_Click(object sender, EventArgs e)
         {
             int testCount = testConfirmationCtrl1.GetTestCount();
             TestCaseContainer test = testConfirmationCtrl1.GetTest(0);
-        }
 
-        private void WriteArduinoProject()
+
+            string testcount = test.LimitValue.ToString();
+            string settingcount = test.param.Count.ToString();
+            string paramStr = "";
+            foreach(var p in test.param)
+            {
+                paramStr += "{{" + p.Port.ToString();
+                paramStr += ",LOW," + (p.Level ? "ACTIVE" : "INACTIVE") + "},";
+                paramStr += "{" + p.Param1.ToString() + "," + p.Param2.ToString() + ",";
+                switch((ParamType)p.ParamType)
+                {
+                    case ParamType.Fix:
+                        paramStr += "TYPE_FIX";
+                        break;
+                    case ParamType.Random:
+                        paramStr += "TYPE_RANDOM";
+                        break;
+                    case ParamType.Increment:
+                        paramStr += "TYPE_INCREMENT";
+                        break;
+                    case ParamType.Decrement:
+                        paramStr += "TYPE_DECREMENT";
+                        break;
+                }
+                paramStr += "}},";
+            }
+            WriteArduinoProject(testcount, settingcount, paramStr);
+        }
+        private void WriteArduinoProject(string testcount, string settingcount, string paramString)
         {
             Assembly asm = Assembly.GetExecutingAssembly();
             /* 出力フォルダの作成 */
@@ -146,6 +170,9 @@ namespace TestManagerTool
                 Stream resStream = asm.GetManifestResourceStream(infile);
                 StreamReader sr = new StreamReader(resStream);
                 string text = sr.ReadToEnd();
+                text = text.Replace("#TEST_COUNT#",testcount);
+                text = text.Replace("#SETTING_COUNT#", settingcount);
+                text = text.Replace("#PARAMETER#", paramString);
                 File.WriteAllText(arduinoFolder + filename, text);
             }
         }
